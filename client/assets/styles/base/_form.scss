@@ -1,0 +1,170 @@
+.input-group {
+  min-height: 4.25rem;
+  margin-top: 1rem;
+
+  .input-wrapper {
+    position: relative;
+
+    .label {
+      font-size: 0.8em;
+      color: $color-black;
+      display: block;
+      margin-bottom: 0.5em;
+      cursor: initial; //Override base styles
+    }
+    input, select, textarea {
+      background-color: $color-white;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+      display: block;
+      font-size: 1rem;
+      outline: 0;
+      padding: 1rem;
+      line-height: 1.25rem;
+
+      &:disabled {
+        opacity: 0.90;
+        z-index: 999999;
+        border: none;
+        background-color: $color-light-gray;
+      }
+
+      &:focus {
+        border-color: $color-primary-blue;
+        box-shadow: 0 0 5px 0 rgba(74,144,226,0.46);
+        background-color: #FAFCFF;
+      }
+    }
+
+    .input-inner-right-content {
+      float: right;
+      position: absolute;
+      top: 41px;
+      right: 15px;
+      color: $color-black;
+
+      &.success {
+        color: $color-success;
+      }
+    }
+
+    input:not([type="checkbox"]) {
+      width: 100%;
+      appearance: none;
+    }
+
+    textarea {
+      min-height: 100px;
+    }
+
+    select {
+      appearance: none;
+    }
+
+    .input-icon {
+      height: 1rem;
+      right: -.75rem;
+      top: -0rem;
+      position: absolute;
+      vertical-align: middle;
+      &.select-icon {
+        right: 0.5rem;
+        top: 2rem;
+      }
+    }
+  }
+
+  .message {
+    display: block;
+    margin-top: 0.25em;
+    text-align: left;
+    text-transform: lowercase;
+
+    &:first-letter {
+      text-transform: uppercase;
+    }
+
+  }
+
+  &.isValid {
+    .input {
+      border-color: $color-success;
+      background-color: $color-success-light-5;
+    }
+
+    .message, .input-icon, .select-icon {
+      color: $color-success;
+    }
+
+    .mx-input-append {
+      display: none;
+    }
+  }
+
+  &.isInvalid {
+    input, select {
+      border-color: $color-danger;
+      background-color: #FFF8F7;
+      box-shadow: 0 0 5px 0 rgba(242,69,43,0.46);
+    }
+
+    .message, .input-icon {
+      color: $color-danger;
+      font-size: 0.8rem;
+    }
+
+    .mx-input-append {
+      display: none;
+    }
+  }
+
+  &.inline {
+    margin-bottom: 0;
+    min-height: inherit;
+
+    .label {
+      display: none;
+    }
+    .message {
+      display: none;
+    }
+  }
+
+  .input {
+    font-family: $font-family-primary;
+  }
+}
+
+.mx-datepicker-override {
+  .mx-datepicker-popup {
+    bottom: auto !important;
+    left: 0;
+    right: auto !important;
+    top: 2rem;
+  }
+
+  .mx-datepicker {
+    display: block;
+    width: 100%;
+  }
+
+  .mx-input-append {
+    margin-right: 10px;
+  }
+
+  .disabled {
+    input.date-input {
+      color: black !important;
+      opacity: 0.95;
+    }
+
+    .mx-input-append {
+      display: none;
+    }
+  }
+
+  .mx-datepicker {
+    z-index: 999999;
+  }
+}

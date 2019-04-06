@@ -1,0 +1,139 @@
+.button {
+  background-color: $color-white;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  color: $color-black;
+  display: inline-block;
+  outline: none;
+  padding: 0.6rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 80ms ease-in-out;
+
+  @mixin interactionStates($base-background-color) {
+    &:hover:enabled {
+      background-color: darken($base-background-color, 12%);
+      transition: transform 150ms;
+      transition: background-color 250ms linear;
+      transform: scale(1.03);
+      cursor: pointer;
+
+      &.inverse {
+        background-color: $color-white;
+      }
+    }
+
+    &:focus {
+      background-color: darken($base-background-color, 3%);
+    }
+
+    &:active {
+      background: darken($base-background-color, 3%);
+    }
+    &:disabled {
+      background-color: $color-button-background-disabled;
+    }
+  }
+
+  /**
+   *
+   * --- Color Variants ---
+   *
+  */
+
+  // Hero
+  &.button-hero {
+    background-color: $color-button-hero;
+    @include interactionStates($color-button-hero);
+  }
+
+  // Primary
+  &.button-primary {
+    color: $color-white;
+    background-color: $color-primary-blue;
+    @include interactionStates($color-primary-blue);
+
+    &.inverse {
+      color: $color-primary-blue;
+      background-color: $color-white;
+    }
+  }
+
+  // Success
+  &.button-success {
+    background-color: $color-success;
+    color: $color-white;
+    @include interactionStates($color-success);
+
+    &.inverse {
+      color: $color-success;
+      background-color: $color-white;
+    }
+  }
+
+  // Info
+  &.button-info {
+    background-color: $color-info;
+    @include interactionStates($color-info);
+
+    &.inverse {
+      color: $color-info;
+      background-color: $color-white;
+    }
+  }
+
+  // Warning
+  &.button-warning {
+    background-color: $color-warning;
+    @include interactionStates($color-info);
+
+    &.inverse {
+      color: $color-warning;
+      background-color: $color-white;
+    }
+  }
+
+  // Error
+  &.button-danger {
+    color: $color-white;
+    background-color: $color-danger;
+    @include interactionStates($color-danger);
+
+    &.inverse {
+      color: $color-danger;
+      background-color: $color-white;
+    }
+  }
+
+  // Error
+  &.button-white {
+    color: $color-black;
+    background-color: $color-white;
+    @include interactionStates($color-white);
+  }
+
+  // Button Promotion Hero
+  &.button-promotion-hero {
+    background-color: $color-primary-blue;
+    color: $color-white;
+    margin-top: 1.5rem;
+    &:active {background-color: $color-primary-blue;}
+    &:focus {background-color: $color-primary-blue; border: $color-primary-blue;};
+    &:hover {background-color: $color-primary-blue;};
+  }
+
+  &.disabled {
+    background-color: $color-button-background-disabled;
+  }
+
+  &.button-clear {
+    background-color: $color-white;
+    border: 1px solid $color-primary-blue;
+    border-radius: 5px;
+    color: $color-primary-blue;
+  }
+
+  .inner {
+    min-width: 80px;
+  }
+}

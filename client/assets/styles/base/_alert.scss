@@ -1,0 +1,64 @@
+.alert {
+  display: flex;
+  border-radius: 0.2em;
+  color: #000;
+  font-size: 1.1em;
+  font-weight: 300;
+  padding: 1.0em;
+
+  .alert-body {
+    display: flex;
+    flex: 1;
+    align-items: center;
+  }
+
+  .alert-body-center {
+    justify-content: center;
+  }
+
+  .alert-body-content {
+    flex: 1;
+  }
+
+  .alert-close {
+    cursor: pointer;
+    padding-right: 10px;
+    font-size: 1em;
+  }
+
+  &.alert-success {
+    background-color: lighten($color-success, 30%);
+    border: 1px solid $color-success;
+
+    .alert-close {
+      color: darken($color-success, 20%);
+    }
+  }
+
+  &.alert-info {
+    background-color: lighten($color-info, 30%);
+    border: 1px solid $color-info;
+
+    .alert-close {
+      color: darken($color-info, 20%);
+    }
+  }
+
+  &.alert-warning {
+    background-color: lighten($color-warning, 40%);
+    border: 1px solid $color-warning;
+
+    .alert-close {
+      color: darken($color-warning, 20%);
+    }
+  }
+
+  &.alert-danger {
+    background-color: $color-danger-light-4;
+    border: 1px solid $color-danger;
+
+    .alert-close {
+      color: darken($color-danger, 20%);
+    }
+  }
+}
